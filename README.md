@@ -1,8 +1,9 @@
 # fahadnazir048
 semester project
-img/tic1.PNG
-img/tic2.PNG
-img/tic3.PNG
-img/tic4.PNG
-img/tic5.PNG
-img/tic6.PNG
+
+![Alt text](tic1.PNG)
+![Alt text](tic2.PNG)
+![Alt text](tic3.PNG)
+![Alt text](tic4.PNG)
+![Alt text](tic5.PNG)
+![Alt text](tic6.PNG)

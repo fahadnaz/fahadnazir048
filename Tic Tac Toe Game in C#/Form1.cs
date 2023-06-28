@@ -7,9 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
+
 
 namespace TicTacToe
 {
+    
     public partial class Form1 : Form
     {
         // Variables
@@ -24,7 +28,7 @@ namespace TicTacToe
             restart_matrix();
             player1_turn = true;
         }
-
+        DB a = new DB();
         // TIC TAC TOE BUTTONS -------------------------------
         private void button1_Click(object sender, EventArgs e)
         {
@@ -385,7 +389,29 @@ namespace TicTacToe
         // Reset game
         private void button10_Click(object sender, EventArgs e)
         {
+            String query = "insert into scores(player1_name,player2_name,player1_score,player2_score) values('"+ label1.Text + "','"+label2.Text+"','"+ label6.Text + "','" + label7.Text + "')";
+            SqlCommand cmd = new SqlCommand(query, a.Con());
+            a.opencon();
+            int resut =cmd.ExecuteNonQuery();
+            if(resut> 0)
+            {
+                MessageBox.Show("Data inserted");
+            }
+            a.closecon();
             Application.Restart();
+
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            label1.Text = Form2.Player1;
+            label2.Text = Form2.Player2;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
